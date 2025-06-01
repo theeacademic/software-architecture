@@ -3,22 +3,22 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search, Menu, X, User, LogIn } from "lucide-react"
+import { Menu, X, LogIn } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const pathname = usePathname()
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Galleries", href: "/galleries" },
-    { name: "Artworks", href: "/artworks" },
-    { name: "Artists", href: "/artists" },
-    { name: "Events", href: "/events" },
+    { name: "Services", href: "/galleries" },
+    { name: "Jobs", href: "/artworks" },
+    { name: "Blog", href: "/artists" },
+    { name: "Contact", href: "/events" },
   ]
 
   return (
@@ -26,12 +26,17 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-art-purple via-art-pink to-art-blue">
-              <div className="absolute inset-0.5 rounded-full bg-white"></div>
-              <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-art-purple via-art-pink to-art-blue"></div>
+            <div className="relative h-8 w-8">
+              <Image
+                src="/BHA LOGO.png"
+                alt="JCM Heights Logo"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
             </div>
             <span className="hidden font-bold text-xl sm:inline-block">
-              Art<span className="text-art-purple">Bunifu</span>
+              <span className="text-blue-500">JCM</span><span className="text-orange-500">Heights</span>
             </span>
           </Link>
         </div>
@@ -43,8 +48,8 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary" : "text-muted-foreground",
+                "text-sm font-medium transition-colors hover:text-orange-500",
+                pathname === link.href ? "text-orange-500" : "text-orange-500",
               )}
             >
               {link.name}
@@ -54,24 +59,8 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
-          {isSearchOpen ? (
-            <div className="flex items-center gap-2">
-              <Input type="search" placeholder="Search galleries, art..." className="w-[200px]" autoFocus />
-              <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(false)}>
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(true)}>
-              <Search className="h-4 w-4" />
-              <span className="sr-only">Search</span>
-            </Button>
-          )}
-          <Button variant="ghost" size="icon">
-            <User className="h-4 w-4" />
-            <span className="sr-only">Account</span>
-          </Button>
-          <Button>
+          <ThemeToggle />
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white">
             <Link href="/auth/sign-in" className="flex items-center">
               <LogIn className="mr-2 h-4 w-4" /> Sign In
             </Link>
@@ -80,23 +69,13 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4 md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(!isSearchOpen)}>
-            <Search className="h-4 w-4" />
-            <span className="sr-only">Search</span>
-          </Button>
+          <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             <span className="sr-only">Menu</span>
           </Button>
         </div>
       </div>
-
-      {/* Mobile Search */}
-      {isSearchOpen && (
-        <div className="container py-2 md:hidden">
-          <Input type="search" placeholder="Search galleries, art..." className="w-full" autoFocus />
-        </div>
-      )}
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
@@ -107,8 +86,8 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === link.href ? "text-primary" : "text-muted-foreground",
+                  "text-sm font-medium transition-colors hover:text-orange-500",
+                  pathname === link.href ? "text-orange-500" : "text-orange-500",
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -116,10 +95,7 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t">
-              <Button variant="outline" className="justify-start">
-                <User className="mr-2 h-4 w-4" /> Account
-              </Button>
-              <Button className="justify-start">
+              <Button className="justify-start bg-orange-500 hover:bg-orange-600 text-white">
                 <Link href="/auth/sign-in" className="flex items-center w-full">
                   <LogIn className="mr-2 h-4 w-4" /> Sign In
                 </Link>

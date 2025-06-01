@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react"
+import { MessageCircle, Mail } from "lucide-react"
 
 const Footer = () => {
   return (
@@ -10,34 +10,27 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-art-purple via-art-pink to-art-blue">
+              <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300">
                 <div className="absolute inset-0.5 rounded-full bg-white"></div>
-                <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-art-purple via-art-pink to-art-blue"></div>
+                <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300"></div>
               </div>
               <span className="font-bold text-xl">
-                Art<span className="text-art-purple">Bunifu</span>
+                JCM<span className="text-blue-500">Heights</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6">
-              Connecting art lovers with galleries and artists worldwide through an innovative platform.
+              Your trusted partner for global recruitment solutions. We connect exceptional talent with leading employers across the Middle East.
             </p>
-            <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Facebook className="h-4 w-4" />
-                <span className="sr-only">Facebook</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Twitter className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Instagram className="h-4 w-4" />
-                <span className="sr-only">Instagram</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Youtube className="h-4 w-4" />
-                <span className="sr-only">YouTube</span>
-              </Button>
+            <div className="flex items-center gap-4 mt-4">
+              <a
+                href="https://wa.me/254717533144"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Text us on WhatsApp
+              </a>
             </div>
           </div>
 
@@ -46,27 +39,27 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/galleries" className="text-muted-foreground hover:text-foreground">
-                  Galleries
+                  Our Services
                 </Link>
               </li>
               <li>
                 <Link href="/artworks" className="text-muted-foreground hover:text-foreground">
-                  Artworks
+                  Job Listings
                 </Link>
               </li>
               <li>
                 <Link href="/artists" className="text-muted-foreground hover:text-foreground">
-                  Artists
+                  Career Blog
                 </Link>
               </li>
               <li>
                 <Link href="/events" className="text-muted-foreground hover:text-foreground">
-                  Events & Exhibitions
+                  Contact Us
                 </Link>
               </li>
               <li>
                 <Link href="/blog" className="text-muted-foreground hover:text-foreground">
-                  Art Blog
+                  Industry News
                 </Link>
               </li>
             </ul>
@@ -106,11 +99,11 @@ const Footer = () => {
           <div>
             <h3 className="font-medium mb-4">Subscribe</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Stay updated with the latest art news, exhibitions, and featured artists.
+              Stay updated with the latest job opportunities and recruitment trends.
             </p>
             <div className="flex gap-2">
               <Input type="email" placeholder="Your email" className="h-9" />
-              <Button size="sm" className="bg-art-purple hover:bg-art-purple/90">
+              <Button size="sm" className="bg-blue-500 hover:bg-blue-600">
                 <Mail className="h-4 w-4 mr-2" /> Subscribe
               </Button>
             </div>
@@ -118,7 +111,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} ArtBunifu. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} JCM Heights. All rights reserved.</p>
         </div>
       </div>
     </footer>

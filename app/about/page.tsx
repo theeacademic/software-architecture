@@ -12,9 +12,9 @@ export default function AboutPage() {
   return (
     <div className="container py-12">
       <div className="max-w-3xl mx-auto mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4">About ArtBunifu</h1>
+        <h1 className="text-4xl font-bold mb-4">About JCM Heights</h1>
         <p className="text-xl text-muted-foreground">
-          Connecting art lovers with galleries and artists worldwide through an innovative platform
+          {/* Add your about text here */}
         </p>
       </div>
 
@@ -22,23 +22,17 @@ export default function AboutPage() {
         <div>
           <h2 className="text-3xl font-bold mb-4">Our Story</h2>
           <p className="text-muted-foreground mb-4">
-            ArtBunifu was founded in 2022 with a simple mission: to make art more accessible to everyone. We believe
-            that art has the power to inspire, challenge, and transform lives, but too often it remains confined to
-            exclusive spaces.
+          JCM Heights was established in 2012 with a clear mission: to open global employment doors for skilled Kenyan professionals. We believe that meaningful work can empower individuals, transform families, and contribute to national growth—but access to international job opportunities has often been limited and complex.
           </p>
           <p className="text-muted-foreground mb-4">
-            Our platform bridges the gap between art galleries, artists, and art enthusiasts, creating a vibrant
-            community where creativity thrives. By leveraging technology, including our AI-powered chatbot, we're making
-            it easier than ever to discover, appreciate, and acquire art.
+          Our platform bridges that gap by connecting Kenyan talent with trusted employers across the Middle East and beyond. With our government accreditation and deep understanding of the recruitment landscape, we make the process smooth, transparent, and efficient for both job seekers and employers.
           </p>
           <p className="text-muted-foreground">
-            Today, ArtBunifu connects thousands of users with hundreds of galleries and artists across the globe, but
-            our journey is just beginning. We continue to innovate and expand, driven by our passion for art and
-            commitment to our community.
+          Today, JCM Heights has helped thousands of individuals secure jobs abroad and continues to grow as a reliable partner in overseas employment. Our journey is far from over—we're constantly evolving to serve our clients better and fulfill our vision of transforming lives through global work opportunities.
           </p>
         </div>
         <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-          <Image src="/home.jpg?height=800&width=600" alt="ArtBunifu Team" fill className="object-cover" />
+          <Image src="/bold 1.jpg?height=800&width=600" alt="ArtBunifu Team" fill className="object-cover" />
         </div>
       </div>
 
@@ -52,10 +46,9 @@ export default function AboutPage() {
                   <Palette className="h-8 w-8" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Artistic Excellence</h3>
+              <h3 className="text-xl font-bold text-center mb-2">Professional Excellence</h3>
               <p className="text-muted-foreground text-center">
-                We celebrate creativity and champion artistic excellence in all its forms, from traditional to
-                cutting-edge.
+              We uphold the highest standards in recruitment by delivering reliable, ethical, and top-quality staffing solutions.
               </p>
             </CardContent>
           </Card>
@@ -67,9 +60,9 @@ export default function AboutPage() {
                   <Users className="h-8 w-8" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Inclusivity</h3>
+              <h3 className="text-xl font-bold text-center mb-2">Accessibility</h3>
               <p className="text-muted-foreground text-center">
-                We believe art should be accessible to everyone, regardless of background, location, or experience.
+              We believe global job opportunities should be within reach for all qualified individuals, regardless of their background or circumstances.
               </p>
             </CardContent>
           </Card>
@@ -81,9 +74,9 @@ export default function AboutPage() {
                   <Globe className="h-8 w-8" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Global Perspective</h3>
+              <h3 className="text-xl font-bold text-center mb-2">Global Reach</h3>
               <p className="text-muted-foreground text-center">
-                We showcase diverse artistic traditions and perspectives from around the world.
+              We connect Kenyan talent with employers across the Middle East and beyond, embracing a worldwide employment perspective.
               </p>
             </CardContent>
           </Card>
@@ -95,9 +88,9 @@ export default function AboutPage() {
                   <Award className="h-8 w-8" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Quality</h3>
+              <h3 className="text-xl font-bold text-center mb-2">Integrity</h3>
               <p className="text-muted-foreground text-center">
-                We maintain high standards in our curation, ensuring authentic and exceptional art experiences.
+              We conduct all our operations with honesty, transparency, and a strong commitment to ethical practices.
               </p>
             </CardContent>
           </Card>
@@ -109,9 +102,9 @@ export default function AboutPage() {
                   <Heart className="h-8 w-8" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Community</h3>
+              <h3 className="text-xl font-bold text-center mb-2">Empowerment</h3>
               <p className="text-muted-foreground text-center">
-                We foster meaningful connections between artists, galleries, collectors, and enthusiasts.
+              We are dedicated to improving lives by providing life-changing employment opportunities and supporting career growth.
               </p>
             </CardContent>
           </Card>

@@ -1,149 +1,170 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Filter, ExternalLink } from "lucide-react"
+import { Calendar, Filter, ExternalLink, Clock } from "lucide-react"
 import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-const artists = [
+const blogPosts = [
   {
     id: 1,
-    name: "Elena Rodriguez",
+    title: "The Future of Recruitment in the Middle East",
+    author: "Sarah Johnson",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Barcelona, Spain",
-    specialty: "Abstract Painting",
-    bio: "Contemporary artist known for vibrant abstract compositions that explore themes of emotion and movement.",
+    date: "April 15, 2023",
+    readTime: "8 min read",
+    category: "Recruitment",
+    excerpt: "Explore the evolving landscape of recruitment in the Middle East, from digital transformation to remote work policies.",
     featured: true,
-    artworks: 24,
-    exhibitions: 12,
+    tags: ["Middle East", "Recruitment", "Digital Transformation"],
   },
   {
     id: 2,
-    name: "Marcus Chen",
+    title: "Top In-Demand Skills in UAE 2023",
+    author: "Michael Chen",
     image: "/placeholder.svg?height=400&width=400",
-    location: "New York, USA",
-    specialty: "Urban Landscapes",
-    bio: "Specializes in realistic urban landscapes that capture the energy and architecture of modern cities.",
-    featured: false,
-    artworks: 18,
-    exhibitions: 8,
+    date: "April 10, 2023",
+    readTime: "6 min read",
+    category: "Career Development",
+    excerpt: "Discover the most sought-after skills in the UAE job market and how to develop them for career advancement.",
+    featured: true,
+    tags: ["UAE", "Skills", "Career Growth"],
   },
   {
     id: 3,
-    name: "Sophie Laurent",
+    title: "Navigating the Middle East Job Market",
+    author: "Fatima Al-Mansouri",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Paris, France",
-    specialty: "Mixed Media",
-    bio: "Experimental artist combining traditional painting techniques with digital elements and found objects.",
-    featured: true,
-    artworks: 32,
-    exhibitions: 15,
+    date: "April 5, 2023",
+    readTime: "7 min read",
+    category: "Job Market",
+    excerpt: "A comprehensive guide to understanding and succeeding in the Middle East job market for international professionals.",
+    featured: false,
+    tags: ["Job Market", "Middle East", "Career Tips"],
   },
   {
     id: 4,
-    name: "Alex Kim",
+    title: "Healthcare Staffing Trends in Qatar",
+    author: "Dr. Ahmed Hassan",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Seoul, South Korea",
-    specialty: "Digital Art",
-    bio: "Digital artist pushing the boundaries of technology and art through immersive and interactive experiences.",
-    featured: false,
-    artworks: 40,
-    exhibitions: 10,
+    date: "March 28, 2023",
+    readTime: "5 min read",
+    category: "Healthcare",
+    excerpt: "Analysis of current trends and opportunities in Qatar's healthcare staffing sector.",
+    featured: true,
+    tags: ["Healthcare", "Qatar", "Staffing"],
   },
   {
     id: 5,
-    name: "Olivia Bennett",
+    title: "Engineering Opportunities in Dubai",
+    author: "James Wilson",
     image: "/placeholder.svg?height=400&width=400",
-    location: "London, UK",
-    specialty: "Watercolor",
-    bio: "Watercolor specialist creating delicate natural scenes inspired by botanical studies and landscapes.",
-    featured: true,
-    artworks: 28,
-    exhibitions: 9,
+    date: "March 20, 2023",
+    readTime: "6 min read",
+    category: "Engineering",
+    excerpt: "Explore the growing demand for engineering professionals in Dubai's construction and infrastructure sectors.",
+    featured: false,
+    tags: ["Engineering", "Dubai", "Construction"],
   },
   {
     id: 6,
-    name: "Carlos Mendez",
+    title: "Digital Transformation in Middle East Recruitment",
+    author: "Layla Mohammed",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Mexico City, Mexico",
-    specialty: "Sculpture",
-    bio: "Sculptor working primarily in bronze and stone, exploring themes of human connection and cultural identity.",
-    featured: false,
-    artworks: 15,
-    exhibitions: 7,
+    date: "March 15, 2023",
+    readTime: "8 min read",
+    category: "Technology",
+    excerpt: "How digital technologies are revolutionizing recruitment processes across the Middle East.",
+    featured: true,
+    tags: ["Digital", "Technology", "Recruitment"],
   },
   {
     id: 7,
-    name: "Aisha Johnson",
+    title: "Hospitality Careers in the Gulf",
+    author: "Robert Taylor",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Chicago, USA",
-    specialty: "Contemporary Painting",
-    bio: "Contemporary painter whose work addresses social issues through bold colors and symbolic imagery.",
-    featured: true,
-    artworks: 22,
-    exhibitions: 11,
+    date: "March 10, 2023",
+    readTime: "5 min read",
+    category: "Hospitality",
+    excerpt: "Career opportunities and growth prospects in the Gulf's booming hospitality industry.",
+    featured: false,
+    tags: ["Hospitality", "Gulf", "Careers"],
   },
   {
     id: 8,
-    name: "Thomas Wright",
+    title: "IT Sector Growth in Saudi Arabia",
+    author: "Nadia Al-Sayed",
     image: "/placeholder.svg?height=400&width=400",
-    location: "Sydney, Australia",
-    specialty: "Photography",
-    bio: "Fine art photographer documenting natural landscapes and environmental changes across continents.",
-    featured: false,
-    artworks: 45,
-    exhibitions: 14,
+    date: "March 5, 2023",
+    readTime: "7 min read",
+    category: "Technology",
+    excerpt: "Exploring the expanding IT sector and emerging opportunities in Saudi Arabia's Vision 2030.",
+    featured: true,
+    tags: ["IT", "Saudi Arabia", "Technology"],
   },
 ]
 
-export default function ArtistsPage() {
+export default function BlogPage() {
   return (
     <div className="container py-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold mb-2">Artists</h1>
+          <h1 className="text-4xl font-bold mb-2">Jobs Blog</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Discover talented artists from around the world showcasing their unique styles and visions
+            Stay informed about the latest trends, opportunities, and insights in the Middle East job market
           </p>
         </div>
         <Button variant="outline" className="mt-4 md:mt-0">
           <Filter className="mr-2 h-4 w-4" />
-          Filter Artists
+          Filter Articles
         </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {artists.map((artist) => (
-          <Card key={artist.id} className="gallery-card overflow-hidden border-none shadow-md">
-            <div className="relative p-6 flex flex-col items-center">
-              <Avatar className="h-32 w-32 mb-4 border-4 border-muted">
-                <AvatarImage src={artist.image} alt={artist.name} />
-                <AvatarFallback>{artist.name.charAt(0)}</AvatarFallback>
-              </Avatar>
-
-              {artist.featured && (
-                <Badge className="absolute top-4 right-4 bg-art-purple hover:bg-art-purple/90">Featured</Badge>
-              )}
-
-              <h3 className="font-bold text-lg text-center mb-1">{artist.name}</h3>
-              <div className="flex items-center text-sm text-muted-foreground mb-2">
-                <MapPin className="h-3 w-3 mr-1" />
-                {artist.location}
+        {blogPosts.map((post) => (
+          <Card key={post.id} className="blog-card overflow-hidden border-none shadow-md">
+            <div className="relative p-6 flex flex-col">
+              <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+                {post.featured && (
+                  <Badge className="absolute top-2 right-2 bg-blue-600 hover:bg-blue-700">Featured</Badge>
+                )}
               </div>
-              <Badge variant="outline" className="mb-3">
-                {artist.specialty}
-              </Badge>
-              <p className="text-sm text-muted-foreground text-center mb-4 line-clamp-3">{artist.bio}</p>
 
-              <div className="flex justify-between w-full text-sm text-muted-foreground mb-4">
-                <span>{artist.artworks} Artworks</span>
-                <span>{artist.exhibitions} Exhibitions</span>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                <Calendar className="h-3 w-3" />
+                <span>{post.date}</span>
+                <Clock className="h-3 w-3 ml-2" />
+                <span>{post.readTime}</span>
+              </div>
+
+              <h3 className="font-bold text-lg mb-2 line-clamp-2">{post.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.tags.map((tag) => (
+                  <Badge key={tag} variant="outline" className="text-xs">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 mb-4">
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={post.image} alt={post.author} />
+                  <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span className="text-sm font-medium">{post.author}</span>
               </div>
 
               <div className="w-full">
-                <Link href={`/artists/${artist.id}`}>
+                <Link href={`/blog/${post.id}`}>
                   <Button variant="outline" className="w-full">
-                    View Profile
+                    Read Article
                     <ExternalLink className="ml-2 h-3 w-3" />
                   </Button>
                 </Link>

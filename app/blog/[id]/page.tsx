@@ -8,58 +8,107 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Blog Post | ArtBunifu",
-  description: "Read our latest blog post about art and technology",
+  title: "Blog Post | JCM Heights",
+  description: "Read our latest blog post about recruitment and staffing solutions",
 }
 
 // This would typically come from a database or CMS
 const blogPosts = [
   {
     id: "1",
-    title: "The Role of AI in Transforming Art Discovery",
+    title: "Job Opportunities in Qatar: A Comprehensive Guide",
     content: `
-      <p>In recent years, artificial intelligence has emerged as a powerful tool in the art world, revolutionizing how we discover, appreciate, and interact with art. At ArtBunifu, we've embraced this technology to enhance the connection between art lovers, galleries, and artists.</p>
+      <p>Qatar's growing economy continues to create numerous employment opportunities across various sectors. At JCM Heights, we're committed to connecting qualified professionals with these opportunities, ensuring a smooth recruitment process for both employers and job seekers.</p>
       
-      <h2>Breaking Down Barriers to Art Discovery</h2>
+      <h2>Male Job Opportunities</h2>
       
-      <p>Traditionally, discovering art that resonates with your personal taste required extensive gallery visits, art fair attendance, and building relationships with curators and dealers. While these experiences remain valuable, AI now offers complementary pathways to art discovery that are more accessible and personalized.</p>
+      <p>We currently have several positions available for male candidates in Qatar:</p>
       
-      <p>Our AI-powered chatbot serves as a knowledgeable art consultant available 24/7. By analyzing user preferences and behavior, it can recommend artworks, galleries, and exhibitions tailored to individual tastes. This technology democratizes access to art expertise, making it available to everyone regardless of location or prior knowledge.</p>
+      <ul>
+        <li>Security Personnel (QAR 1600-1800)</li>
+        <li>Cleaners</li>
+        <li>Company Helpers</li>
+        <li>Lifeguards</li>
+        <li>Firewatchers</li>
+        <li>Baristas</li>
+        <li>Petrol Attendants</li>
+        <li>Mechanical Helpers</li>
+        <li>Technicians</li>
+      </ul>
       
-      <h2>Enhancing the Gallery Experience</h2>
+      <h2>Female Job Opportunities</h2>
       
-      <p>Far from replacing physical galleries, AI enhances the gallery experience by helping visitors prepare for and maximize their visits. Users can explore a gallery's collection beforehand, identify pieces of interest, and arrive with context that enriches their in-person experience.</p>
+      <p>For female candidates, we offer the following positions:</p>
       
-      <p>Gallery owners benefit too, gaining insights into visitor preferences and engagement patterns. This data helps them curate more compelling exhibitions and connect with potential collectors more effectively.</p>
+      <ul>
+        <li>Security Personnel</li>
+        <li>Cleaners</li>
+        <li>Baristas</li>
+        <li>Beauticians</li>
+        <li>Home Teachers</li>
+        <li>House-to-House Sales Representatives</li>
+        <li>House Maids</li>
+      </ul>
       
-      <h2>Connecting Artists with Their Audience</h2>
+      <h2>General Requirements</h2>
       
-      <p>For artists, AI offers unprecedented opportunities to reach the right audience. Traditional art markets often relied on gatekeepers and established networks, making it challenging for emerging artists to gain visibility. AI-driven platforms can identify potential admirers based on genuine affinity for an artist's style, creating more meaningful connections.</p>
+      <p>All candidates must meet the following requirements:</p>
       
-      <p>At ArtBunifu, we're developing algorithms that can recognize stylistic elements, themes, and techniques in artwork, helping to match artists with collectors who appreciate their specific approach.</p>
+      <ul>
+        <li>Valid Passport</li>
+        <li>CV with Introduction Video and Full Photo</li>
+        <li>KCSE Certificate</li>
+        <li>Certificate of Good Conduct</li>
+        <li>COVID-19 Vaccination Certificate</li>
+        <li>Yellow Fever Vaccination Certificate</li>
+        <li>Medical Examination (QAR 6500)</li>
+      </ul>
       
-      <h2>The Future of AI in Art</h2>
+      <h2>Compensation Package</h2>
       
-      <p>As AI technology continues to evolve, we anticipate even more sophisticated applications in the art world. From virtual reality gallery experiences to advanced art authentication tools, the possibilities are expanding rapidly.</p>
+      <p>Our standard compensation package includes:</p>
       
-      <p>However, we remain committed to the principle that technology should enhance rather than replace the human elements of art appreciation. The emotional connection to art, the stories behind each piece, and the community that forms around shared artistic interests remain central to our mission.</p>
+      <ul>
+        <li>Basic Salary: QAR 1000</li>
+        <li>Food Allowance: QAR 300</li>
+        <li>Overtime: QAR 300-500</li>
+        <li>Working Hours: 8-12 hours per day</li>
+        <li>Commission: Applicable based on position</li>
+      </ul>
+      
+      <h2>Application Process</h2>
+      
+      <p>To apply for any of these positions, please submit the following documents to jonniemwasn@gmail.com:</p>
+      
+      <ul>
+        <li>Updated CV with recent photograph</li>
+        <li>Introduction video (2-3 minutes)</li>
+        <li>Scanned copies of all required certificates</li>
+        <li>Contact information for references</li>
+      </ul>
+      
+      <h2>Why Choose JCM Heights?</h2>
+      
+      <p>At JCM Heights, we understand the challenges of international recruitment. Our team provides comprehensive support throughout the entire process, from initial application to successful placement. We ensure all legal requirements are met and assist with visa processing, medical examinations, and travel arrangements.</p>
+      
+      <p>Our commitment to excellence and our extensive network of employers in Qatar make us the preferred recruitment partner for both job seekers and employers. We maintain high standards of professionalism and integrity in all our recruitment processes.</p>
       
       <h2>Conclusion</h2>
       
-      <p>The integration of AI into art discovery represents a significant step forward in making art more accessible, personalized, and engaging. At ArtBunifu, we're excited to be at the forefront of this transformation, using technology to strengthen the connections between all participants in the art ecosystem.</p>
+      <p>Qatar's job market offers excellent opportunities for both male and female professionals. With competitive compensation packages and a supportive work environment, these positions provide a solid foundation for career growth in the Middle East.</p>
       
-      <p>We invite you to experience our AI-powered features and join us in exploring the vast and vibrant world of art in new ways.</p>
+      <p>If you're interested in any of these positions or would like to learn more about opportunities in Qatar, please contact us at jonniemwasn@gmail.com. Our recruitment team is ready to assist you in finding the perfect match for your skills and career goals.</p>
     `,
     image: "/placeholder.svg?height=800&width=1200",
     date: "April 15, 2023",
     readTime: "8 min read",
     author: {
       name: "Sarah Johnson",
-      role: "Founder & CEO",
+      role: "Head of Recruitment",
       image: "/placeholder.svg?height=200&width=200",
     },
-    category: "Technology",
-    tags: ["AI", "Art Discovery", "Technology", "Digital Innovation"],
+    category: "Recruitment",
+    tags: ["Qatar", "Job Opportunities", "Middle East", "Career Development"],
     relatedPosts: [2, 4, 6],
   },
   {
