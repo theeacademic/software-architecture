@@ -53,7 +53,7 @@ const jobs = [
     id: 4,
     title: "Lifeguard",
     location: "Qatar",
-    image: "/lifeguard.jpg?height=400&width=600",
+    image: "/lifegurad.jpg?height=400&width=600",
     salary: "QAR 1000 + Allowances",
     category: "Safety",
     requirements: "Valid Passport, Good Conduct, Swimming Certificate",
