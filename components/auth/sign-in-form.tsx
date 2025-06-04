@@ -1,71 +1,44 @@
-"use client"
-
-import type React from "react"
-
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useToast } from "@/hooks/use-toast"
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface SignInFormProps {
-  role: "user" | "admin"
+  role: 'user' | 'admin';
 }
 
 export function SignInForm({ role }: SignInFormProps) {
-  const [isLoading, setIsLoading] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const router = useRouter()
-  const { toast } = useToast()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login, isLoading } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   async function onSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
 
-    try {
-      const response = await fetch("/api/auth/sign-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-          role,
-        }),
-      })
+    const success = await login(email, password, role);
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to sign in")
-      }
-
-      // In a real app, you would store the token in localStorage or cookies
-      // localStorage.setItem("token", data.token)
-
+    if (success) {
       toast({
         title: "Success!",
-        description: `Signed in as ${data.user.firstName} ${data.user.lastName}`,
-      })
+        description: `Signed in successfully as ${role}`,
+      });
 
-      // Redirect based on role
-      if (data.user.role === "admin") {
-        router.push("/admin/dashboard")
+      if (role === 'admin') {
+        navigate('/admin/dashboard');
       } else {
-        router.push("/")
+        navigate('/dashboard');
       }
-    } catch (error) {
-      console.error("Sign in error:", error)
+    } else {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to sign in",
+        description: "Invalid credentials or role mismatch",
         variant: "destructive",
-      })
-    } finally {
-      setIsLoading(false)
+      });
     }
   }
 
@@ -83,18 +56,34 @@ export function SignInForm({ role }: SignInFormProps) {
         />
       </div>
       <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <Label htmlFor="password">Password</Label>
-          <a href="/auth/reset-password" className="text-xs text-art-purple hover:underline">
-            Forgot password?
-          </a>
-        </div>
-        <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <Label htmlFor="password">Password</Label>
+        <Input 
+          id="password" 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          required 
+        />
       </div>
 
-      <Button type="submit" className="w-full bg-art-purple hover:bg-art-purple/90" disabled={isLoading}>
+      <Button 
+        type="submit" 
+        className="w-full bg-job-portal-primary hover:bg-job-portal-primary/90" 
+        disabled={isLoading}
+      >
         {isLoading ? "Signing in..." : `Sign In as ${role === "admin" ? "Admin" : "User"}`}
       </Button>
+      
+      {role === 'user' && (
+        <p className="text-sm text-gray-600 text-center">
+          Demo: Use john@example.com / password123
+        </p>
+      )}
+      {role === 'admin' && (
+        <p className="text-sm text-gray-600 text-center">
+          Demo: Use admin@example.com / admin123
+        </p>
+      )}
     </form>
-  )
+  );
 }
