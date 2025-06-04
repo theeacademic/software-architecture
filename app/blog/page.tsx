@@ -16,7 +16,7 @@ const blogPosts = [
     title: "The Future of Recruitment in the Middle East",
     excerpt:
       "How digital transformation and AI are revolutionizing the recruitment landscape in the Middle East job market.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/recruitment.jpg?height=600&width=800",
     date: "April 15, 2023",
     readTime: "8 min read",
     author: "Sarah Johnson",
@@ -27,7 +27,7 @@ const blogPosts = [
     id: 2,
     title: "Top In-Demand Skills in UAE 2023",
     excerpt: "Discover the most sought-after skills and qualifications that employers are looking for in the UAE market.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/skills.jpg?",
     date: "April 10, 2023",
     readTime: "6 min read",
     author: "Michael Chen",
