@@ -67,7 +67,7 @@ export default function SignInPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Admin Sign In</CardTitle>
-                <CardDescription>Sign in to manage galleries, artworks, and user accounts.</CardDescription>
+                <CardDescription>Sign in to manage jobs and applications.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <SignInForm role="admin" />
@@ -85,10 +85,9 @@ export default function SignInPage() {
               </CardContent>
               <CardFooter className="flex flex-col space-y-4">
                 <div className="text-sm text-center text-muted-foreground">
-                  Need admin access?{" "}
-                  <Link href="/contact" className="text-art-purple hover:underline">
-                    Contact support
-                  </Link>
+                  Admin accounts are managed by the system administrator.
+                  <br />
+                  Please contact support for access.
                 </div>
               </CardFooter>
             </Card>

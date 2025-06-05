@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
           <div className="flex flex-col gap-6">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Welcome to JCM <span className="text-blue-500">Heights</span>
+              Welcome to JCGM HEIGHTS Recruitment <span className="text-blue-500">Agency</span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Your trusted partner for global recruitment solutions. We connect exceptional talent with leading employers across the Middle East, ensuring successful placements and long-term partnerships.

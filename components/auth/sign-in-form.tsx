@@ -1,10 +1,13 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/app/AuthContext';
+import { Eye, EyeOff } from 'lucide-react';
 
 interface SignInFormProps {
   role: 'user' | 'admin';
@@ -13,30 +16,56 @@ interface SignInFormProps {
 export function SignInForm({ role }: SignInFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const { login, isLoading } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    console.log('SignInForm - Form submission:', {
+      email,
+      password,
+      role,
+      formValues: {
+        email: email.trim(),
+        password: password.trim(),
+        role
+      }
+    });
 
-    const success = await login(email, password, role);
-
-    if (success) {
-      toast({
-        title: "Success!",
-        description: `Signed in successfully as ${role}`,
+    try {
+      const success = await login(email.trim(), password.trim(), role);
+      console.log('SignInForm - Login result:', {
+        success,
+        email: email.trim(),
+        role
       });
 
-      if (role === 'admin') {
-        navigate('/admin/dashboard');
+      if (success) {
+        toast({
+          title: "Success!",
+          description: `Signed in successfully as ${role}`,
+        });
+
+        if (role === 'admin') {
+          router.push('/admin/dashboard');
+        } else {
+          router.push('/dashboard');
+        }
       } else {
-        navigate('/dashboard');
+        console.log('SignInForm - Login failed');
+        toast({
+          title: "Error",
+          description: "Invalid credentials or role mismatch",
+          variant: "destructive",
+        });
       }
-    } else {
+    } catch (error) {
+      console.error('SignInForm - Sign in error:', error);
       toast({
         title: "Error",
-        description: "Invalid credentials or role mismatch",
+        description: "An error occurred during sign in",
         variant: "destructive",
       });
     }
@@ -48,7 +77,7 @@ export function SignInForm({ role }: SignInFormProps) {
         <Label htmlFor="email">Email or Username</Label>
         <Input
           id="email"
-          placeholder="name@example.com"
+          placeholder={role === 'admin' ? "Enter admin username" : "name@example.com"}
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -57,18 +86,36 @@ export function SignInForm({ role }: SignInFormProps) {
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
-        <Input 
-          id="password" 
-          type="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          required 
-        />
+        <div className="relative">
+          <Input 
+            id="password" 
+            type={showPassword ? "text" : "password"}
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <EyeOff className="h-4 w-4 text-gray-500" />
+            ) : (
+              <Eye className="h-4 w-4 text-gray-500" />
+            )}
+            <span className="sr-only">
+              {showPassword ? "Hide password" : "Show password"}
+            </span>
+          </Button>
+        </div>
       </div>
 
       <Button 
         type="submit" 
-        className="w-full bg-job-portal-primary hover:bg-job-portal-primary/90" 
+        className="w-full bg-orange-500 hover:bg-orange-600 text-white" 
         disabled={isLoading}
       >
         {isLoading ? "Signing in..." : `Sign In as ${role === "admin" ? "Admin" : "User"}`}
@@ -77,11 +124,6 @@ export function SignInForm({ role }: SignInFormProps) {
       {role === 'user' && (
         <p className="text-sm text-gray-600 text-center">
           Demo: Use john@example.com / password123
-        </p>
-      )}
-      {role === 'admin' && (
-        <p className="text-sm text-gray-600 text-center">
-          Demo: Use admin@example.com / admin123
         </p>
       )}
     </form>

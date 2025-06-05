@@ -1,204 +1,180 @@
-import React, { useState } from 'react';
+'use client';
 
-export function SignUpForm({ onSignUp, isLoading }) {
-  const [formData, setFormData] = useState({
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Eye, EyeOff } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+
+interface SignUpFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  username: string;
+  password: string;
+  confirmPassword: string;
+}
+
+interface SignUpFormProps {
+  onSignUp: (data: Omit<SignUpFormData, 'confirmPassword'>, role: 'user' | 'admin') => void;
+  isLoading?: boolean;
+  role: 'user' | 'admin';
+}
+
+export function SignUpForm({ onSignUp, isLoading, role }: SignUpFormProps) {
+  const [formData, setFormData] = useState<SignUpFormData>({
     firstName: '',
     lastName: '',
-    username: '',
     email: '',
+    username: '',
     password: '',
-    confirmPassword: '',
-    terms: false,
+    confirmPassword: ''
   });
-  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { toast } = useToast();
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: '',
-      });
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
-    }
-
-    if (!formData.username.trim()) {
-      newErrors.username = 'Username is required';
-    } else if (formData.username.length < 3) {
-      newErrors.username = 'Username must be at least 3 characters';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
-    if (!formData.terms) {
-      newErrors.terms = 'You must agree to the terms';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  async function onSubmit(e) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
+    if (formData.password !== formData.confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
       return;
     }
-
-    onSignUp({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      username: formData.username,
-      email: formData.email,
-      password: formData.password,
-    });
-  }
+    const { confirmPassword, ...signUpData } = formData;
+    onSignUp(signUpData, role);
+  };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-            First name
-          </label>
-          <input
+          <Label htmlFor="firstName">First Name</Label>
+          <Input
+            type="text"
             id="firstName"
             name="firstName"
-            placeholder="John"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
           />
-          {errors.firstName && <p className="text-xs text-red-500">{errors.firstName}</p>}
         </div>
         <div className="space-y-2">
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-            Last name
-          </label>
-          <input 
+          <Label htmlFor="lastName">Last Name</Label>
+          <Input
+            type="text"
             id="lastName" 
             name="lastName" 
-            placeholder="Doe" 
             value={formData.lastName} 
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
           />
-          {errors.lastName && <p className="text-xs text-red-500">{errors.lastName}</p>}
         </div>
       </div>
+
       <div className="space-y-2">
-        <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-          Username
-        </label>
-        <input 
-          id="username" 
-          name="username" 
-          placeholder="johndoe" 
-          value={formData.username} 
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
-        {errors.username && <p className="text-xs text-red-500">{errors.username}</p>}
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-          Email
-        </label>
-        <input
+        <Label htmlFor="email">Email</Label>
+        <Input
+          type="email"
           id="email"
           name="email"
-          placeholder="name@example.com"
-          type="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          required
         />
-        {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-          Password
-        </label>
-        <input 
-          id="password" 
-          name="password" 
-          type="password" 
-          value={formData.password} 
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
-        {errors.password && <p className="text-xs text-red-500">{errors.password}</p>}
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-          Confirm password
-        </label>
-        <input
-          id="confirmPassword"
-          name="confirmPassword"
-          type="password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
-        {errors.confirmPassword && <p className="text-xs text-red-500">{errors.confirmPassword}</p>}
       </div>
 
-      <div className="flex items-center space-x-2">
-        <input
-          id="terms"
-          name="terms"
-          type="checkbox"
-          checked={formData.terms}
+      <div className="space-y-2">
+        <Label htmlFor="username">Username</Label>
+        <Input
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
           onChange={handleChange}
-          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+          required
         />
-        <label
-          htmlFor="terms"
-          className="text-sm font-medium text-gray-700"
-        >
-          I agree to the terms of service and privacy policy
-        </label>
       </div>
-      {errors.terms && <p className="text-xs text-red-500">{errors.terms}</p>}
 
-      <button 
+      <div className="space-y-2">
+        <Label htmlFor="password">Password</Label>
+        <div className="relative">
+          <Input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            value={formData.password}
+          onChange={handleChange}
+            required
+          />
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <EyeOff className="h-4 w-4 text-gray-500" />
+            ) : (
+              <Eye className="h-4 w-4 text-gray-500" />
+            )}
+            <span className="sr-only">
+              {showPassword ? "Hide password" : "Show password"}
+            </span>
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="confirmPassword">Confirm Password</Label>
+        <div className="relative">
+          <Input
+            type={showConfirmPassword ? "text" : "password"}
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+          onChange={handleChange}
+            required
+          />
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+          >
+            {showConfirmPassword ? (
+              <EyeOff className="h-4 w-4 text-gray-500" />
+            ) : (
+              <Eye className="h-4 w-4 text-gray-500" />
+            )}
+            <span className="sr-only">
+              {showConfirmPassword ? "Hide password" : "Show password"}
+            </span>
+          </Button>
+        </div>
+      </div>
+
+      <Button 
         type="submit" 
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed" 
+        className="w-full bg-orange-500 hover:bg-orange-600 text-white"
         disabled={isLoading}
       >
-        {isLoading ? "Creating Account..." : "Create Account"}
-      </button>
+        {isLoading ? "Creating account..." : `Create ${role === 'admin' ? 'Admin' : 'User'} Account`}
+      </Button>
     </form>
   );
 }

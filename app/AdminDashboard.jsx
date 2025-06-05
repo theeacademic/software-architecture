@@ -4,24 +4,28 @@ import React, { useState } from 'react';
 const AdminDashboard = () => {
   const [jobs, setJobs] = useState([
     {
-      id: '1',
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Inc.',
-      location: 'San Francisco, CA',
-      type: 'full-time',
-      salary: '$120,000 - $150,000',
-      description: 'We are looking for an experienced Frontend Developer to join our dynamic team...',
-      requirements: ['React.js', 'TypeScript', 'Tailwind CSS', '5+ years experience']
+      id: 1,
+    title: "Security Personnel",
+    location: "Qatar",
+    image: "/security.jpg",
+    salary: "QAR 1600-1800",
+    category: "Security",
+    requirements: "Valid Passport, Good Conduct",
+    type: "Full-time",
+    gender: "Male",
+    forHiring: true
     },
     {
-      id: '2',
-      title: 'UX/UI Designer',
-      company: 'Design Studio',
-      location: 'New York, NY',
-      type: 'full-time',
-      salary: '$80,000 - $100,000',
-      description: 'Join our creative team as a UX/UI Designer and help shape amazing user experiences...',
-      requirements: ['Figma', 'Adobe Creative Suite', 'User Research', '3+ years experience']
+      id: 2,
+    title: "Cleaner",
+    location: "Qatar",
+    image: "/cleaner.jpg?height=400&width=600",
+    salary: "QAR 1000 + Allowances",
+    category: "Maintenance",
+    requirements: "Valid Passport, Good Conduct",
+    type: "Full-time",
+    gender: "Both",
+    forHiring: true,
     }
   ]);
 

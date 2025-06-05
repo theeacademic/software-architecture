@@ -3,15 +3,21 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, LogIn } from "lucide-react"
+import { Menu, X, LogIn, LogOut } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useAuth } from "@/app/AuthContext"
+import { useToast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { user, logout } = useAuth()
+  const { toast } = useToast()
+  const router = useRouter()
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -20,6 +26,15 @@ const Navbar = () => {
     { name: "Blog", href: "/artists" },
     { name: "Contact", href: "/events" },
   ]
+
+  const handleLogout = () => {
+    logout()
+    toast({
+      title: "Success",
+      description: "Logged out successfully",
+    })
+    router.push('/auth/sign-in')
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -60,11 +75,28 @@ const Navbar = () => {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">
-            <Link href="/auth/sign-in" className="flex items-center">
-              <LogIn className="mr-2 h-4 w-4" /> Sign In
+          {user ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex items-center gap-2"
+              onClick={handleLogout}
+            >
+              <LogOut className="h-4 w-4" />
+              <span>Logout</span>
+            </Button>
+          ) : (
+            <Link href="/auth/sign-in">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <LogIn className="h-4 w-4" />
+                <span>Sign In</span>
+              </Button>
             </Link>
-          </Button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -95,11 +127,24 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t">
-              <Button className="justify-start bg-orange-500 hover:bg-orange-600 text-white">
-                <Link href="/auth/sign-in" className="flex items-center w-full">
-                  <LogIn className="mr-2 h-4 w-4" /> Sign In
-                </Link>
-              </Button>
+              {user ? (
+                <Button 
+                  variant="outline" 
+                  className="justify-start bg-orange-500 hover:bg-orange-600 text-white"
+                  onClick={() => {
+                    handleLogout()
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  <LogOut className="mr-2 h-4 w-4" /> Log Out
+                </Button>
+              ) : (
+                <Button className="justify-start bg-orange-500 hover:bg-orange-600 text-white">
+                  <Link href="/auth/sign-in" className="flex items-center w-full">
+                    <LogIn className="mr-2 h-4 w-4" /> Sign In
+                  </Link>
+                </Button>
+              )}
             </div>
           </nav>
         </div>
