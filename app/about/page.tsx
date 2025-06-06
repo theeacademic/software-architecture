@@ -127,20 +127,14 @@ export default function AboutPage() {
 
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {[
-            { name: "Sarah Johnson", role: "Founder & CEO", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Michael Chen", role: "Chief Technology Officer", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Elena Rodriguez", role: "Art Director", image: "/placeholder.svg?height=300&width=300" },
-            { name: "David Wilson", role: "Head of Partnerships", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Aisha Johnson", role: "UX/UI Designer", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Thomas Wright", role: "Marketing Director", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Sophie Laurent", role: "Content Curator", image: "/placeholder.svg?height=300&width=300" },
-            { name: "Carlos Mendez", role: "Community Manager", image: "/placeholder.svg?height=300&width=300" },
+            { name: "Jonas Mwangi", role: "Chief Executive Officer", image: "/jonas.jpeg" },
+            { name: "Marketing Director", role: "Marketing Director", image: "/jonas.jpeg" },
           ].map((member, index) => (
             <div key={index} className="text-center">
               <div className="relative h-48 w-48 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                <Image src={member.image} alt={member.name} fill className="object-cover" />
               </div>
               <h3 className="font-bold text-lg">{member.name}</h3>
               <p className="text-muted-foreground">{member.role}</p>

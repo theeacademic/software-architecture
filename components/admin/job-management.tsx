@@ -129,7 +129,7 @@ export function JobManagement() {
                     <div className="text-sm">
                       <h4 className="font-semibold mb-2">Requirements:</h4>
                       <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                        {job.requirements.split(', ').map((req, index) => (
+                        {job.requirements.map((req, index) => (
                           <li key={index}>{req}</li>
                         ))}
                       </ul>

@@ -11,7 +11,7 @@ import ChatbotButton from "@/components/chatbot-button"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ArtBunifu - Explore Art Galleries",
+  title: "JCGM",
   description: "Discover art galleries and collections with AI-powered assistance",
   generator: 'v0.dev'
 }

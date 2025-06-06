@@ -5,7 +5,7 @@ import { Quote } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    name: "Ahmed Al-Mansouri",
+    name: "Daniel Kipkorir",
     role: "HR Director, Healthcare Group",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Sarah Thompson",
+    name: "Faith Wanjiru",
     role: "Engineering Manager",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Fatima Hassan",
+    name: "Kevin Omondi",
     role: "IT Professional",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:

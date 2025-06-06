@@ -5,7 +5,7 @@ export interface Job {
   image: string;
   salary: string;
   category: string;
-  requirements: string;
+  requirements: string[];
   type: string;
   gender: 'Male' | 'Female' | 'Both';
   forHiring: boolean;
@@ -19,7 +19,7 @@ export const jobs: Job[] = [
     image: "/security.jpg",
     salary: "QAR 1600-1800",
     category: "Security",
-    requirements: "Valid Passport, Good Conduct",
+    requirements: ["Valid Passport", "Good Conduct"],
     type: "Full-time",
     gender: "Male",
     forHiring: true,
@@ -31,7 +31,7 @@ export const jobs: Job[] = [
     image: "/cleaner.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Maintenance",
-    requirements: "Valid Passport, Good Conduct",
+    requirements: ["Valid Passport", "Good Conduct"],
     type: "Full-time",
     gender: "Both",
     forHiring: true,
@@ -43,7 +43,7 @@ export const jobs: Job[] = [
     image: "/helper.jpg",
     salary: "QAR 1000 + Allowances",
     category: "General",
-    requirements: "Valid Passport, Good Conduct",
+    requirements: ["Valid Passport", "Good Conduct"],
     type: "Full-time",
     gender: "Male",
     forHiring: true,
@@ -55,7 +55,7 @@ export const jobs: Job[] = [
     image: "/lifegurad.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Safety",
-    requirements: "Valid Passport, Good Conduct, Swimming Certificate",
+    requirements: ["Valid Passport", "Good Conduct", "Swimming Certificate"],
     type: "Full-time",
     gender: "Male",
     forHiring: true,
@@ -67,7 +67,7 @@ export const jobs: Job[] = [
     image: "/barista.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Hospitality",
-    requirements: "Valid Passport, Good Conduct",
+    requirements: ["Valid Passport", "Good Conduct"],
     type: "Full-time",
     gender: "Both",
     forHiring: true,
@@ -79,7 +79,7 @@ export const jobs: Job[] = [
     image: "/beautician.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Beauty",
-    requirements: "Valid Passport, Good Conduct, Beauty Certificate",
+    requirements: ["Valid Passport", "Good Conduct", "Beauty Certificate"],
     type: "Full-time",
     gender: "Female",
     forHiring: true,
@@ -91,7 +91,7 @@ export const jobs: Job[] = [
     image: "/teacher.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Education",
-    requirements: "Valid Passport, Good Conduct, Teaching Certificate",
+    requirements: ["Valid Passport", "Good Conduct", "Teaching Certificate"],
     type: "Full-time",
     gender: "Female",
     forHiring: true,
@@ -103,7 +103,7 @@ export const jobs: Job[] = [
     image: "/maid.jpg",
     salary: "QAR 1000 + Allowances",
     category: "Domestic",
-    requirements: "Valid Passport, Good Conduct",
+    requirements: ["Valid Passport", "Good Conduct"],
     type: "Full-time",
     gender: "Female",
     forHiring: true,

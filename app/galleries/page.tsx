@@ -85,12 +85,12 @@ const recruitmentProcess = [
 ]
 
 const clients = [
-  { name: "Client 1", logo: "/clients/client1.png" },
-  { name: "Client 2", logo: "/clients/client2.png" },
-  { name: "Client 3", logo: "/clients/client3.png" },
-  { name: "Client 4", logo: "/clients/client4.png" },
-  { name: "Client 5", logo: "/clients/client5.png" },
-  { name: "Client 6", logo: "/clients/client6.png" },
+  { name: "Mwangi", logo: "/clients/client1.png" },
+  { name: "Njeri", logo: "/clients/client2.png" },
+  { name: "Ochieng'", logo: "/clients/client3.png" },
+  { name: "Wanjiku", logo: "/clients/client4.png" },
+  { name: "Kiplagat", logo: "/clients/client5.png" },
+  { name: "Chepkemoi", logo: "/clients/client6.png" },
 ]
 
 export default function StaffingPage() {
@@ -148,7 +148,7 @@ export default function StaffingPage() {
                   </div>
                 </div>
                 <div className="mt-4">
-                  <Link href={`/jobs/${solution.id}`}>
+                  <Link href="/artworks">
                     <Button variant="outline" className="w-full">
                       View Opportunities
                     </Button>
@@ -178,23 +178,6 @@ export default function StaffingPage() {
                 </p>
               </CardContent>
             </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Clients Section */}
-      <div className="bg-gray-50 p-8 rounded-lg">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Trusted Clients</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
-          {clients.map((client, index) => (
-            <div key={index} className="relative h-20 w-40 grayscale hover:grayscale-0 transition-all">
-              <Image
-                src={client.logo}
-                alt={client.name}
-                fill
-                className="object-contain"
-              />
-            </div>
           ))}
         </div>
       </div>

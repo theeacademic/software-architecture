@@ -61,14 +61,34 @@ export default function JobsPage() {
                   {job.gender}
                 </span>
               </div>
-              <div className="mt-4">
-                <Button 
-                  className="w-full"
-                  onClick={() => setSelectedJob(job.id)}
-                >
-                  Apply Now
-                </Button>
-              </div>
+              {/* View Details Button (Toggles Dropdown) */}
+              <Collapsible open={openJobId === job.id} onOpenChange={() => setOpenJobId(openJobId === job.id ? null : job.id)}>
+                <CollapsibleTrigger asChild>
+                  <Button variant="outline" className="w-full mt-4">
+                    View Details
+                    <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${openJobId === job.id ? 'rotate-180' : 'rotate-0'}`} />
+                  </Button>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-4 space-y-3">
+                  <div>
+                    <h4 className="text-sm font-medium mb-1">Requirements:</h4>
+                    <ul className="list-disc list-inside text-sm text-muted-foreground">
+                      {job.requirements.map((req, index) => (
+                        <li key={index}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Add other details you want to show in the dropdown, e.g., category */}
+                  <div>
+                     <span className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full">Category: {job.category}</span>
+                  </div>
+
+                  {/* Apply Button (Links to Sign-in) */}
+                  <Link href="/auth/sign-in">
+                    <Button size="sm" className="w-full mt-2">Apply</Button>
+                  </Link>
+                </CollapsibleContent>
+              </Collapsible>
             </CardContent>
           </Card>
         ))}

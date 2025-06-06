@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contact Us | ArtBunifu",
-  description: "Get in touch with the ArtBunifu team for inquiries, support, or partnerships",
+  title: "Contact Us | JCGM",
+  description: "Get in touch with the JCGM team for inquiries, support, or partnerships",
 }
 
 export default function ContactPage() {
@@ -29,11 +29,9 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-bold text-center mb-2">Our Location</h3>
             <p className="text-muted-foreground text-center">
-              123 Art Street
+              Nairobi, Kenya
               <br />
-              San Francisco, CA 94103
-              <br />
-              United States
+              East Africa
             </p>
           </CardContent>
         </Card>
@@ -47,11 +45,11 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-bold text-center mb-2">Phone</h3>
             <p className="text-muted-foreground text-center">
-              General: +1 (555) 123-4567
+              General: +254 717 533 144
               <br />
-              Support: +1 (555) 987-6543
+              Support: +254 717 533 144
               <br />
-              Partnerships: +1 (555) 456-7890
+              Partnerships: +254 717 533 144
             </p>
           </CardContent>
         </Card>
@@ -65,11 +63,11 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-bold text-center mb-2">Email</h3>
             <p className="text-muted-foreground text-center">
-              General: info@artbunifu.com
+              General: jonas@gmail.com
               <br />
-              Support: support@artbunifu.com
+              Support: jonas@gmail.com
               <br />
-              Partnerships: partners@artbunifu.com
+              Partnerships: jonas@gmail.com
             </p>
           </CardContent>
         </Card>
@@ -140,8 +138,16 @@ export default function ContactPage() {
 
             <div className="mt-8">
               <h3 className="font-bold mb-4">Find Us</h3>
-              <div className="h-[300px] bg-muted rounded-lg flex items-center justify-center">
-                <p className="text-muted-foreground">Interactive Map Would Be Here</p>
+              <div className="h-[300px] rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8191673787!2d36.81423037476854!3d-1.281371980253668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5a0c0c0c1%3A0x0!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1647881234567!5m2!1sen!2ske"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
           </div>
@@ -151,7 +157,7 @@ export default function ContactPage() {
       <div className="bg-muted/30 p-8 rounded-lg text-center">
         <h2 className="text-2xl font-bold mb-4">Join Our Community</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-          Stay connected with ArtBunifu by following us on social media for the latest updates, featured artworks, and
+          Stay connected with JCGM by following us on social media for the latest updates, featured artworks, and
           exclusive events.
         </p>
         <div className="flex justify-center gap-4">

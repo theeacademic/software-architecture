@@ -115,12 +115,10 @@ export default function BlogPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">{post.title}</h3>
                 <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                <Link href={`/blog/${post.id}`}>
-                  <Button variant="outline" className="w-full">
-                    Read Article
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <Button variant="outline" className="w-full" disabled>
+                  Read Article
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -148,16 +146,15 @@ export default function BlogPage() {
                 </div>
                 <h3 className="text-lg font-bold mb-2">{post.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
-                <Link href={`/blog/${post.id}`}>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="p-0 h-auto font-medium text-blue-500 hover:text-blue-600 hover:bg-transparent"
-                  >
-                    Read More
-                    <ArrowRight className="ml-1 h-3 w-3" />
-                  </Button>
-                </Link>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="p-0 h-auto font-medium text-blue-500 hover:text-blue-600 hover:bg-transparent"
+                  disabled
+                >
+                  Read More
+                  <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
               </CardContent>
             </Card>
           ))}
