@@ -148,11 +148,9 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700">
                 JCGM Heights
                 <br />
-                Dubai Business Center
+                Nairobi, Kenya
                 <br />
-                Sheikh Zayed Road
-                <br />
-                Dubai, UAE
+                East Africa
                 <br />
                 Email: <span className="text-blue-600">privacy@jcgmheights.com</span>
                 <br />

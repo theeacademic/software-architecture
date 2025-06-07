@@ -163,12 +163,10 @@ export default function TermsPage() {
               <p className="text-gray-700">
                 JCGM Heights
                 <br />
-                Dubai Business Center
-            <br />
-                Sheikh Zayed Road
-            <br />
-                Dubai, UAE
-            <br />
+                Nairobi, Kenya
+                <br />
+                East Africa
+                <br />
                 Email: <span className="text-blue-600">legal@jcgmheights.com</span>
             <br />
                 Phone: <span className="text-blue-600">+971 4 123 4567</span>
