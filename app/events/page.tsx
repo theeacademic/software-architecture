@@ -29,11 +29,9 @@ export default function ContactPage() {
             </div>
             <h3 className="text-lg font-bold text-center mb-2">Our Location</h3>
             <p className="text-muted-foreground text-center">
-              Dubai Business Center
+              Nairobi, Kenya
               <br />
-              Sheikh Zayed Road
-              <br />
-              Dubai, UAE
+              East Africa
             </p>
           </CardContent>
         </Card>

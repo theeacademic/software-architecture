@@ -116,14 +116,14 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                   </div>
                   <CardContent className="p-4">
                     <h3 className="font-bold mb-2">{post?.title}</h3>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="p-0 h-auto font-medium text-art-purple hover:text-art-purple/90 hover:bg-transparent"
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="p-0 h-auto font-medium text-art-purple hover:text-art-purple/90 hover:bg-transparent"
                       disabled
-                    >
-                      Read Article
-                    </Button>
+                      >
+                        Read Article
+                      </Button>
                   </CardContent>
                 </Card>
               ))}
