@@ -44,14 +44,14 @@ const Navbar = () => {
             <div className="relative h-8 w-8">
               <Image
                 src="/BHA LOGO.png"
-                alt="JCM Heights Logo"
+                alt="JCGM Heights Logo"
                 width={32}
                 height={32}
                 className="object-contain"
               />
             </div>
             <span className="hidden font-bold text-xl sm:inline-block">
-              <span className="text-blue-500">JCM</span><span className="text-orange-500">Heights</span>
+              <span className="text-blue-500">JCGM</span><span className="text-orange-500">Heights</span>
             </span>
           </Link>
         </div>

@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300"></div>
               </div>
               <span className="font-bold text-xl">
-                JCM<span className="text-blue-500">Heights</span>
+                JCGM<span className="text-blue-500">Heights</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6">
@@ -111,7 +111,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} JCM Heights. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} JCGM Heights. All rights reserved.</p>
         </div>
       </div>
     </footer>

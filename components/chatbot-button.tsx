@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils"
 // FAQ knowledge base
 const faqs = [
   {
-    question: "What services does JCM Heights offer?",
+    question: "What services does JCGM Heights offer?",
     answer:
-      "JCM Heights specializes in comprehensive staffing solutions across various sectors in the Middle East, including Healthcare, Engineering, IT, and Hospitality. We provide end-to-end recruitment services, from candidate screening and documentation to placement and ongoing support. Our services are tailored to meet both employer needs and candidate career goals.",
+      "JCGM Heights specializes in comprehensive staffing solutions across various sectors in the Middle East, including Healthcare, Engineering, IT, and Hospitality. We provide end-to-end recruitment services, from candidate screening and documentation to placement and ongoing support. Our services are tailored to meet both employer needs and candidate career goals.",
   },
   {
     question: "How does the recruitment process work?",
@@ -50,12 +50,12 @@ const faqs = [
       "Yes, we provide comprehensive visa and work permit processing services. Our team handles work permit applications, residence visa processing, family visa arrangements, document attestation, and medical insurance setup. We ensure all legal requirements are met for smooth employment in the UAE.",
   },
   {
-    question: "What makes JCM Heights different from other recruitment agencies?",
+    question: "What makes JCGM Heights different from other recruitment agencies?",
     answer:
       "Our key differentiators include deep understanding of the Middle East market, industry-specific expertise, comprehensive screening process, end-to-end support services, strong network of employers, personalized approach to recruitment, and commitment to long-term success.",
   },
   {
-    question: "How can I contact JCM Heights?",
+    question: "How can I contact JCGM Heights?",
     answer:
       "You can reach us through multiple channels: Phone: +971 4 XXX XXXX, Email: info@boldheights.com, Office: Dubai Business Center, Sheikh Zayed Road, Social Media: LinkedIn, Twitter, Instagram. Our team is available Sunday to Thursday, 9 AM to 6 PM GST.",
   },
@@ -88,7 +88,7 @@ const ChatbotButton = () => {
   const [messages, setMessages] = useState([
     {
       role: "system",
-      content: "Hello! I'm JCM Heights' recruitment assistant. How can I help you with jobs, staffing, or our services today?",
+      content: "Hello! I'm JCGM Heights' recruitment assistant. How can I help you with jobs, staffing, or our services today?",
     },
   ])
   const [input, setInput] = useState("")

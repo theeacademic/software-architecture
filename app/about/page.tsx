@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div className="container py-12">
       <div className="max-w-3xl mx-auto mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4">About JCM Heights</h1>
+        <h1 className="text-4xl font-bold mb-4">About JCGM Heights</h1>
         <p className="text-xl text-muted-foreground">
           {/* Add your about text here */}
         </p>
@@ -22,13 +22,13 @@ export default function AboutPage() {
         <div>
           <h2 className="text-3xl font-bold mb-4">Our Story</h2>
           <p className="text-muted-foreground mb-4">
-          JCM Heights was established in 2012 with a clear mission: to open global employment doors for skilled Kenyan professionals. We believe that meaningful work can empower individuals, transform families, and contribute to national growth—but access to international job opportunities has often been limited and complex.
+          JCGM Heights was established in 2012 with a clear mission: to open global employment doors for skilled Kenyan professionals. We believe that meaningful work can empower individuals, transform families, and contribute to national growth—but access to international job opportunities has often been limited and complex.
           </p>
           <p className="text-muted-foreground mb-4">
           Our platform bridges that gap by connecting Kenyan talent with trusted employers across the Middle East and beyond. With our government accreditation and deep understanding of the recruitment landscape, we make the process smooth, transparent, and efficient for both job seekers and employers.
           </p>
           <p className="text-muted-foreground">
-          Today, JCM Heights has helped thousands of individuals secure jobs abroad and continues to grow as a reliable partner in overseas employment. Our journey is far from over—we're constantly evolving to serve our clients better and fulfill our vision of transforming lives through global work opportunities.
+          Today, JCGM Heights has helped thousands of individuals secure jobs abroad and continues to grow as a reliable partner in overseas employment. Our journey is far from over—we're constantly evolving to serve our clients better and fulfill our vision of transforming lives through global work opportunities.
           </p>
         </div>
         <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">

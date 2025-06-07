@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | JCM Heights",
-  description: "JCM Heights' terms of service and user agreement for staffing and recruitment services",
+  title: "Terms of Service | JCGM Heights",
+  description: "JCGM Heights' terms of service and user agreement for staffing and recruitment services",
 }
 
 export default function TermsPage() {
@@ -19,8 +19,8 @@ export default function TermsPage() {
         <div className="prose prose-lg max-w-none space-y-8">
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <p className="text-lg leading-relaxed text-gray-700">
-              Welcome to JCM Heights. Please read these Terms of Service ("Terms") carefully as they contain important
-              information about your legal rights, remedies, and obligations. By accessing or using the JCM Heights
+              Welcome to JCGM Heights. Please read these Terms of Service ("Terms") carefully as they contain important
+              information about your legal rights, remedies, and obligations. By accessing or using the JCGM Heights
             platform, you agree to comply with and be bound by these Terms.
           </p>
           </div>
@@ -29,7 +29,7 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-700 leading-relaxed">
             By accessing or using our platform, you agree to these Terms and our Privacy Policy. If you do not agree to
-              these Terms, you may not access or use the JCM Heights platform.
+              these Terms, you may not access or use the JCGM Heights platform.
           </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function TermsPage() {
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">3. Platform Overview</h2>
             <p className="text-gray-700 leading-relaxed">
-              JCM Heights is a recruitment and staffing platform that connects job seekers with employers across the Middle East.
+              JCGM Heights is a recruitment and staffing platform that connects job seekers with employers across the Middle East.
               We provide recruitment services, job listings, career resources, and tools to help users find employment
               opportunities and employers find qualified candidates.
             </p>
@@ -89,7 +89,7 @@ export default function TermsPage() {
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">6. Intellectual Property</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              The platform and its original content, features, and functionality are owned by JCM Heights and are protected
+              The platform and its original content, features, and functionality are owned by JCGM Heights and are protected
             by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary
             rights laws.
           </p>
@@ -114,8 +114,8 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">8. Third-Party Links</h2>
             <p className="text-gray-700 leading-relaxed">
             The platform may contain links to third-party websites or services that are not owned or controlled by
-              JCM Heights. We have no control over, and assume no responsibility for, the content, privacy policies, or
-              practices of any third-party websites or services. You acknowledge and agree that JCM Heights shall not be
+              JCGM Heights. We have no control over, and assume no responsibility for, the content, privacy policies, or
+              practices of any third-party websites or services. You acknowledge and agree that JCGM Heights shall not be
             responsible or liable for any damage or loss caused by or in connection with use of or reliance on any such
             content, goods, or services available on or through any such websites or services.
           </p>
@@ -133,7 +133,7 @@ export default function TermsPage() {
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">10. Limitation of Liability</h2>
             <p className="text-gray-700 leading-relaxed">
-              In no event shall JCM Heights, nor its directors, employees, partners, agents, suppliers, or affiliates, be
+              In no event shall JCGM Heights, nor its directors, employees, partners, agents, suppliers, or affiliates, be
             liable for any indirect, incidental, special, consequential, or punitive damages, including without
             limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to
               or use of or inability to access or use the platform or any recruitment services provided.
@@ -151,7 +151,7 @@ export default function TermsPage() {
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">12. Changes to Platform</h2>
             <p className="text-gray-700 leading-relaxed">
-              JCM Heights reserves the right to modify or discontinue, temporarily or permanently, the platform or any
+              JCGM Heights reserves the right to modify or discontinue, temporarily or permanently, the platform or any
             features or portions thereof without prior notice.
           </p>
           </div>
@@ -161,7 +161,7 @@ export default function TermsPage() {
             <p className="text-gray-700 mb-4">If you have any questions about these Terms, please contact us at:</p>
             <div className="bg-blue-50 p-6 rounded-lg">
               <p className="text-gray-700">
-                JCM Heights
+                JCGM Heights
                 <br />
                 Dubai Business Center
             <br />
@@ -169,7 +169,7 @@ export default function TermsPage() {
             <br />
                 Dubai, UAE
             <br />
-                Email: <span className="text-blue-600">legal@jcmheights.com</span>
+                Email: <span className="text-blue-600">legal@jcgmheights.com</span>
             <br />
                 Phone: <span className="text-blue-600">+971 4 123 4567</span>
           </p>

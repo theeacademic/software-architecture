@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | JCM Heights",
-  description: "JCM Heights' privacy policy and data protection practices for staffing and recruitment services",
+  title: "Privacy Policy | JCGM Heights",
+  description: "JCGM Heights' privacy policy and data protection practices for staffing and recruitment services",
 }
 
 export default function PrivacyPolicyPage() {
@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
         <div className="prose prose-lg max-w-none space-y-8">
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
             <p className="text-lg leading-relaxed text-gray-700">
-              At JCM Heights, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose,
+              At JCGM Heights, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose,
               and safeguard your information when you visit our website or use our services. Please read this privacy
               policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
             </p>
@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
               </li>
               <li>
                 If we believe your actions are inconsistent with our user agreements or policies, or to protect the
-                rights, property, and safety of JCM Heights or others
+                rights, property, and safety of JCGM Heights or others
               </li>
               <li>
                 In connection with, or during negotiations of, any merger, sale of company assets, financing, or
@@ -121,7 +121,7 @@ export default function PrivacyPolicyPage() {
               <li>The right to object to our processing of your personal information</li>
               <li>The right to withdraw consent</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed mt-4">To exercise these rights, please contact us at privacy@jcmheights.com.</p>
+            <p className="text-gray-700 leading-relaxed mt-4">To exercise these rights, please contact us at privacy@jcgmheights.com.</p>
           </div>
 
           <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-100">
@@ -146,7 +146,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-700 mb-4">If you have any questions about this privacy policy, please contact us at:</p>
             <div className="bg-blue-50 p-6 rounded-lg">
               <p className="text-gray-700">
-                JCM Heights
+                JCGM Heights
                 <br />
                 Dubai Business Center
                 <br />
@@ -154,7 +154,7 @@ export default function PrivacyPolicyPage() {
                 <br />
                 Dubai, UAE
                 <br />
-                Email: <span className="text-blue-600">privacy@jcmheights.com</span>
+                Email: <span className="text-blue-600">privacy@jcgmheights.com</span>
                 <br />
                 Phone: <span className="text-blue-600">+971 4 123 4567</span>
               </p>

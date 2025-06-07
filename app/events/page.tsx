@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock, MessageSquare, Users, Building2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contact Us | JCM Heights",
-  description: "Get in touch with JCM Heights for your staffing and recruitment needs in the Middle East",
+  title: "Contact Us | JCGM Heights",
+  description: "Get in touch with JCGM Heights for your staffing and recruitment needs in the Middle East",
 }
 
 export default function ContactPage() {
@@ -155,7 +155,7 @@ export default function ContactPage() {
       <div className="bg-blue-50 p-8 rounded-lg text-center">
         <h2 className="text-2xl font-bold mb-4">Join Our Network</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-          Connect with JCM Heights to stay updated on the latest job opportunities, industry insights, and recruitment trends in the Middle East.
+          Connect with JCGM Heights to stay updated on the latest job opportunities, industry insights, and recruitment trends in the Middle East.
         </p>
         <div className="flex justify-center gap-4">
           <Button variant="outline" size="sm">

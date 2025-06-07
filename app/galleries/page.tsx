@@ -112,10 +112,10 @@ export default function StaffingPage() {
 
       <div className="mb-12 max-w-4xl mx-auto text-center">
         <p className="text-lg text-muted-foreground mb-6">
-          <span className="font-bold text-foreground">JCM Heights</span> offers employers the assurance of having their workforce needs professionally fulfilled within the shortest time possible. We conduct thorough background checks and provide orientation for all our candidates to ensure they are well-suited for the roles. Our team manages the entire recruitment process and offers support throughout the interview stages to guarantee our clients receive only the best talent.
+          <span className="font-bold text-foreground">JCGM Heights</span> offers employers the assurance of having their workforce needs professionally fulfilled within the shortest time possible. We conduct thorough background checks and provide orientation for all our candidates to ensure they are well-suited for the roles. Our team manages the entire recruitment process and offers support throughout the interview stages to guarantee our clients receive only the best talent.
         </p>
         <p className="text-lg text-muted-foreground">
-          At <span className="font-bold text-foreground">JCM Heights</span>, we are deeply committed to delivering exceptional service and maintaining excellence in all that we do. Our partnerships are built on a foundation of genuine integrity and trust.
+          At <span className="font-bold text-foreground">JCGM Heights</span>, we are deeply committed to delivering exceptional service and maintaining excellence in all that we do. Our partnerships are built on a foundation of genuine integrity and trust.
         </p>
       </div>
 

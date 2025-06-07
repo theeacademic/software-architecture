@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CalendarDays, Clock, User, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Blog | JCM Heights",
+  title: "Blog | JCGM Heights",
   description: "Explore insights about recruitment, career development, and staffing solutions in the Middle East",
 }
 
@@ -70,8 +70,8 @@ const blogPosts = [
   },
   {
     id: 6,
-    title: "Behind the Scenes: The Making of JCM Heights",
-    excerpt: "The story of how JCM Heights became a leading recruitment agency in the Middle East.",
+    title: "Behind the Scenes: The Making of JCGM Heights",
+    excerpt: "The story of how JCGM Heights became a leading recruitment agency in the Middle East.",
     image: "/placeholder.svg?height=600&width=800",
     date: "March 15, 2023",
     readTime: "12 min read",
@@ -88,7 +88,7 @@ export default function BlogPage() {
   return (
     <div className="container py-12">
       <div className="max-w-3xl mx-auto mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4">JCM Heights Blog</h1>
+        <h1 className="text-4xl font-bold mb-4">JCGM Heights Blog</h1>
         <p className="text-xl text-muted-foreground">Insights, trends, and opportunities in Middle East recruitment</p>
       </div>
 

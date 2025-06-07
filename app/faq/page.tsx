@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "FAQ | JCM Heights",
-  description: "Frequently asked questions about JCM Heights' staffing and recruitment services in the Middle East",
+  title: "FAQ | JCGM Heights",
+  description: "Frequently asked questions about JCGM Heights' staffing and recruitment services in the Middle East",
 }
 
 export default function FAQPage() {
@@ -22,10 +22,10 @@ export default function FAQPage() {
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="px-4 py-4 hover:no-underline hover:bg-muted/50">
-                What services does JCM Heights offer?
+                What services does JCGM Heights offer?
               </AccordionTrigger>
               <AccordionContent className="px-4 pb-4">
-                JCM Heights specializes in comprehensive staffing solutions across various sectors in the Middle East, including Healthcare, Engineering, IT, and Hospitality. We provide end-to-end recruitment services, from candidate screening and documentation to placement and ongoing support. Our services are tailored to meet both employer needs and candidate career goals.
+                JCGM Heights specializes in comprehensive staffing solutions across various sectors in the Middle East, including Healthcare, Engineering, IT, and Hospitality. We provide end-to-end recruitment services, from candidate screening and documentation to placement and ongoing support. Our services are tailored to meet both employer needs and candidate career goals.
               </AccordionContent>
             </AccordionItem>
 
@@ -128,7 +128,7 @@ export default function FAQPage() {
 
             <AccordionItem value="item-9">
               <AccordionTrigger className="px-4 py-4 hover:no-underline hover:bg-muted/50">
-                What makes JCM Heights different from other recruitment agencies?
+                What makes JCGM Heights different from other recruitment agencies?
               </AccordionTrigger>
               <AccordionContent className="px-4 pb-4">
                 Our key differentiators include:
@@ -144,7 +144,7 @@ export default function FAQPage() {
 
             <AccordionItem value="item-10">
               <AccordionTrigger className="px-4 py-4 hover:no-underline hover:bg-muted/50">
-                How can I contact JCM Heights?
+                How can I contact JCGM Heights?
               </AccordionTrigger>
               <AccordionContent className="px-4 pb-4">
                 You can reach us through multiple channels:
