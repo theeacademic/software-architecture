@@ -9,7 +9,7 @@ const testimonials = [
     role: "HR Director, Healthcare Group",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:
-      "JCM Heights has been instrumental in helping us build our healthcare team in Dubai. Their thorough screening process and understanding of local regulations have made recruitment seamless.",
+      "JCGM Heights has been instrumental in helping us build our healthcare team in Dubai. Their thorough screening process and understanding of local regulations have made recruitment seamless.",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const testimonials = [
     role: "Engineering Manager",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:
-      "The quality of engineering professionals provided by JCM Heights has exceeded our expectations. Their deep understanding of the construction sector in the UAE has been invaluable.",
+      "The quality of engineering professionals provided by JCGM Heights has exceeded our expectations. Their deep understanding of the construction sector in the UAE has been invaluable.",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const testimonials = [
     role: "IT Professional",
     avatar: "/placeholder.svg?height=100&width=100",
     quote:
-      "JCM Heights helped me secure my dream role in Dubai's tech sector. Their team provided excellent support throughout the entire process, from documentation to relocation.",
+      "JCGM Heights helped me secure my dream role in Dubai's tech sector. Their team provided excellent support throughout the entire process, from documentation to relocation.",
   },
 ]
 
@@ -35,7 +35,7 @@ const TestimonialSection = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Hear from employers and professionals who have experienced JCM Heights' exceptional staffing solutions
+          Hear from employers and professionals who have experienced JCGM Heights' exceptional staffing solutions
         </p>
       </div>
 
