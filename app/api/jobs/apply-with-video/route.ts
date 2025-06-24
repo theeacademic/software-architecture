@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import nodemailer from 'nodemailer';
 
 // Mock in-memory applications array (replace with DB in production)
-const applications: any[] = [];
+export const applications: any[] = [];
 
 export async function POST(req: Request) {
   try {
@@ -31,6 +32,30 @@ export async function POST(req: Request) {
       appliedAt: new Date().toISOString(),
     };
     applications.push(application);
+
+    // --- EMAIL LOGIC ---
+    // Fill in your Gmail address and app password below
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'YOUR_GMAIL_ADDRESS@gmail.com', // <-- FILL THIS IN
+        pass: 'YOUR_APP_PASSWORD',            // <-- FILL THIS IN (App Password, not your real password)
+      },
+    });
+
+    await transporter.sendMail({
+      from: 'YOUR_GMAIL_ADDRESS@gmail.com', // <-- FILL THIS IN
+      to: 'kellykabui392@gmail.com',
+      subject: `New Job Application Video for Job ID: ${jobId}`,
+      text: `A new video application has been submitted for job ID: ${jobId}.`,
+      attachments: [
+        {
+          filename: videoFilename,
+          path: videoPath,
+        },
+      ],
+    });
+    // --- END EMAIL LOGIC ---
 
     return NextResponse.json({ success: true, application });
   } catch (error) {

@@ -1,17 +1,13 @@
 import { NextResponse } from 'next/server';
-
-// In a real app, fetch these from your database
-const mockAnalytics = {
-  visitors: 123, // Replace with real unique login count
-  activities: [
-    { label: 'Applications Submitted', count: 87 },
-    { label: 'Jobs Posted', count: 12 },
-    { label: 'Jobs Filled', count: 5 },
-    { label: 'Reviews Written', count: 23 },
-  ],
-};
+import { applications } from '../jobs/apply-with-video/route';
+import { jobs } from '../jobs/route';
 
 export async function GET() {
-  // Here you would query your database for real analytics
-  return NextResponse.json(mockAnalytics);
+  // Real analytics from in-memory arrays
+  const visitors = 1; // Only you have visited
+  const activities = [
+    { label: 'Applications Submitted', count: applications.length },
+    { label: 'Jobs Posted', count: jobs.length },
+  ];
+  return NextResponse.json({ visitors, activities });
 } 

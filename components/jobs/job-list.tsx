@@ -35,7 +35,7 @@ export function JobList() {
     try {
       const response = await fetch('/api/jobs');
       const data = await response.json();
-      setJobs(data);
+      setJobs(data.jobs || []);
     } catch (error) {
       toast({
         title: "Error",
@@ -129,6 +129,9 @@ export function JobList() {
             <DialogTitle>Upload a Short Video</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleVideoSubmit} className="space-y-4">
+            <div className="text-sm text-muted-foreground mb-2">
+              Please record a short video describing yourself. The video should not be more than <b>3 minutes</b> long.
+            </div>
             <Input
               type="file"
               accept="video/*"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/app/AuthContext"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,12 +13,27 @@ import { JobManagement } from "@/components/jobs/job-management"
 export function DashboardPageClient() {
   const router = useRouter();
   const { user, isLoading } = useAuth();
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const [loadingNotifications, setLoadingNotifications] = useState(true);
 
   useEffect(() => {
     if (!isLoading && !user) {
       router.push('/auth/sign-in');
     }
   }, [user, isLoading, router]);
+
+  useEffect(() => {
+    if (user && user.role !== 'admin') {
+      fetch('/api/notifications')
+        .then(res => res.json())
+        .then(data => setNotifications(data.notifications || []))
+        .finally(() => setLoadingNotifications(false));
+    }
+  }, [user]);
+
+  const dismissNotification = (id: string) => {
+    setNotifications((prev) => prev.filter(n => n.id !== id));
+  };
 
   if (isLoading) {
     return (
@@ -42,6 +57,22 @@ export function DashboardPageClient() {
           Logged in as: {user.username} ({isAdmin ? 'Administrator' : 'User'})
         </div>
       </div>
+
+      {/* User notifications (not admin) */}
+      {!isAdmin && !loadingNotifications && notifications.length > 0 && (
+        <div className="mb-6 space-y-2">
+          {notifications.map((n) => (
+            <Card key={n.id} className="bg-blue-50 border-blue-200">
+              <CardContent className="flex items-center justify-between py-3">
+                <span className="text-blue-900 font-medium">{n.message}</span>
+                <Button size="sm" variant="ghost" onClick={() => dismissNotification(n.id)}>
+                  Dismiss
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
 
       {isAdmin ? (
         <Tabs defaultValue="applications" className="space-y-4">
