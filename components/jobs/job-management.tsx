@@ -19,6 +19,13 @@ interface Job {
   postedAt: string;
 }
 
+interface Application {
+  id: string;
+  jobId: string;
+  videoUrl?: string;
+  appliedAt: string;
+}
+
 export function JobManagement() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,10 +36,12 @@ export function JobManagement() {
     location: '',
     type: 'full-time',
   });
+  const [applications, setApplications] = useState<Application[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
     fetchJobs();
+    fetchApplications();
   }, []);
 
   const fetchJobs = async () => {
@@ -48,6 +57,16 @@ export function JobManagement() {
       });
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const fetchApplications = async () => {
+    try {
+      const response = await fetch('/api/jobs/apply-with-video');
+      const data = await response.json();
+      setApplications(data.applications || []);
+    } catch (error) {
+      // Optionally handle error
     }
   };
 
@@ -199,6 +218,26 @@ export function JobManagement() {
                 >
                   Delete
                 </Button>
+              </div>
+              {/* Applications for this job */}
+              <div className="mt-4">
+                <h4 className="font-semibold mb-2">Applications</h4>
+                {applications.filter(app => app.jobId === job.id).length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No applications yet.</p>
+                ) : (
+                  <ul className="space-y-4">
+                    {applications.filter(app => app.jobId === job.id).map(app => (
+                      <li key={app.id} className="border rounded p-2">
+                        <div className="flex flex-col gap-2">
+                          <span className="text-xs text-muted-foreground">Applied: {new Date(app.appliedAt).toLocaleString()}</span>
+                          {app.videoUrl && (
+                            <video src={app.videoUrl} controls width="320" className="rounded" />
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </CardContent>
           </Card>

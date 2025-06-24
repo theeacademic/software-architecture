@@ -22,6 +22,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Analytics } from '@/components/admin/analytics';
 
 // Mock applications data - in a real app, this would come from your API
 const mockApplications = [
@@ -104,8 +105,8 @@ export function JobApplications() {
     }
   };
 
-  // Get jobs that have applications
-  const jobsWithApplications = jobs.filter(job => 
+  // Get jobs that have applications (robust filtering)
+  const jobsWithApplications = jobs.filter(job =>
     applications.some(app => app.jobId === job.id)
   );
 
@@ -253,6 +254,7 @@ export function JobApplications() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <Analytics />
     </div>
   );
 } 
