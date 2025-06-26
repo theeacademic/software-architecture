@@ -129,7 +129,7 @@ export default function AboutPage() {
         <h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { name: "Jonas Mwangi", role: "Chief Executive Officer", image: "/jonas.jpeg" },
+            { name: "Jonas Mwangi", role: "Chief Executive Officer", image: "/jonas.png" },
             { name: "Marketing Director", role: "Marketing Director", image: "/jonas.jpeg" },
           ].map((member, index) => (
             <div key={index} className="text-center">

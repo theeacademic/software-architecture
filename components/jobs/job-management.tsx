@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
@@ -17,6 +17,7 @@ interface Job {
   location: string;
   type: string;
   postedAt: string;
+  imageUrl?: string;
 }
 
 interface Application {
@@ -37,6 +38,8 @@ export function JobManagement() {
     type: 'full-time',
   });
   const [applications, setApplications] = useState<Application[]>([]);
+  const [jobImage, setJobImage] = useState<File | null>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -48,7 +51,7 @@ export function JobManagement() {
     try {
       const response = await fetch('/api/jobs');
       const data = await response.json();
-      setJobs(data);
+      setJobs(data.jobs || []);
     } catch (error) {
       toast({
         title: "Error",
@@ -72,14 +75,18 @@ export function JobManagement() {
 
   const handleCreateJob = async () => {
     try {
+      const formData = new FormData();
+      formData.append('title', newJob.title);
+      formData.append('description', newJob.description);
+      formData.append('location', newJob.location);
+      formData.append('type', newJob.type);
+      if (jobImage) {
+        formData.append('image', jobImage);
+      }
       const response = await fetch('/api/jobs', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newJob),
+        body: formData,
       });
-
       if (response.ok) {
         toast({
           title: "Success",
@@ -92,6 +99,8 @@ export function JobManagement() {
           location: '',
           type: 'full-time',
         });
+        setJobImage(null);
+        if (imageInputRef.current) imageInputRef.current.value = '';
         fetchJobs();
       } else {
         throw new Error('Job creation failed');
@@ -189,6 +198,16 @@ export function JobManagement() {
                   </SelectContent>
                 </Select>
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="image">Job Image</Label>
+                <Input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  ref={imageInputRef}
+                  onChange={e => setJobImage(e.target.files?.[0] || null)}
+                />
+              </div>
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
@@ -211,7 +230,12 @@ export function JobManagement() {
             </CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
-                <p className="text-sm text-muted-foreground">{job.description}</p>
+                <div>
+                  {job.imageUrl && (
+                    <img src={job.imageUrl} alt={job.title} className="w-32 h-20 object-cover rounded mb-2" />
+                  )}
+                  <p className="text-sm text-muted-foreground">{job.description}</p>
+                </div>
                 <Button
                   variant="destructive"
                   onClick={() => handleDeleteJob(job.id)}

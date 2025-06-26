@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { notifications } from '../notifications/route';
+import { writeFile, mkdir } from 'fs/promises';
+import path from 'path';
 
 // Mock in-memory jobs array - initialize with some jobs
 export const jobs: any[] = [
@@ -43,15 +45,43 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const data = await req.json();
-    const newJob = {
-      id: Date.now().toString(),
-      ...data,
-      postedAt: new Date().toISOString(),
-    };
+    let newJob;
+    let imageUrl = '';
+    if (req.headers.get('content-type')?.includes('multipart/form-data')) {
+      const formData = await req.formData();
+      const title = formData.get('title') as string;
+      const description = formData.get('description') as string;
+      const location = formData.get('location') as string;
+      const type = formData.get('type') as string;
+      const image = formData.get('image') as File | null;
+      if (image) {
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+        await mkdir(uploadsDir, { recursive: true });
+        const imageBuffer = Buffer.from(await image.arrayBuffer());
+        const imageFilename = `${Date.now()}-${image.name.replace(/\s+/g, '-')}`;
+        const imagePath = path.join(uploadsDir, imageFilename);
+        await writeFile(imagePath, imageBuffer);
+        imageUrl = `/uploads/${imageFilename}`;
+      }
+      newJob = {
+        id: Date.now().toString(),
+        title,
+        description,
+        location,
+        type,
+        postedAt: new Date().toISOString(),
+        imageUrl,
+      };
+    } else {
+      const data = await req.json();
+      newJob = {
+        id: Date.now().toString(),
+        ...data,
+        postedAt: new Date().toISOString(),
+        imageUrl: '',
+      };
+    }
     jobs.push(newJob);
-
-    // Push notification for all users (demo)
     notifications.push({
       id: Date.now().toString(),
       message: `New job posted: ${newJob.title}`,
@@ -59,7 +89,6 @@ export async function POST(req: Request) {
       createdAt: new Date().toISOString(),
       read: false,
     });
-
     return NextResponse.json({ success: true, job: newJob });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to create job' }, { status: 500 });

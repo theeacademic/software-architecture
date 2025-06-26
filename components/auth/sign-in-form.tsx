@@ -20,6 +20,7 @@ export function SignInForm({ role }: SignInFormProps) {
   const { login, isLoading } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
+  const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -35,6 +36,7 @@ export function SignInForm({ role }: SignInFormProps) {
     });
 
     try {
+      setError(null);
       const success = await login(email.trim(), password.trim(), role);
       console.log('SignInForm - Login result:', {
         success,
@@ -54,7 +56,7 @@ export function SignInForm({ role }: SignInFormProps) {
           router.push('/dashboard');
         }
       } else {
-        console.log('SignInForm - Login failed');
+        setError("Incorrect password or account does not exist.");
         toast({
           title: "Error",
           description: "Invalid credentials or role mismatch",
@@ -62,6 +64,7 @@ export function SignInForm({ role }: SignInFormProps) {
         });
       }
     } catch (error) {
+      setError("An error occurred during sign in.");
       console.error('SignInForm - Sign in error:', error);
       toast({
         title: "Error",
@@ -111,6 +114,9 @@ export function SignInForm({ role }: SignInFormProps) {
             </span>
           </Button>
         </div>
+        {error && (
+          <p className="text-sm text-red-600 mt-1">{error}</p>
+        )}
       </div>
 
       <Button 

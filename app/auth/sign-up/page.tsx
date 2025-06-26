@@ -51,7 +51,7 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
+    <div className="container flex h-screen w-screen flex-col items-center justify-center pb-32">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">
@@ -94,6 +94,9 @@ export default function SignUpPage() {
             </Card>
           </TabsContent>
         </Tabs>
+      </div>
+      <div className="mt-4 text-center">
+        <a href="/auth/sign-in" className="text-blue-600 hover:underline">Already have an account? Sign in</a>
       </div>
     </div>
   );
