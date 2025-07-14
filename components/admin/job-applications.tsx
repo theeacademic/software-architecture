@@ -23,6 +23,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Analytics } from '@/components/admin/analytics';
+import Image from "next/image"
 
 // Mock applications data - in a real app, this would come from your API
 const mockApplications = [
@@ -150,10 +151,13 @@ export function JobApplications() {
         {jobsWithApplications.map((job) => (
           <Card key={job.id} className="job-card overflow-hidden border-none shadow-md">
             <div className="relative h-64 overflow-hidden">
-              <img
+              <Image
                 src={job.image || "/placeholder.svg"}
                 alt={job.title}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={job.id === 1}
               />
               <button className="absolute top-2 right-2 p-1.5 bg-white/80 rounded-full hover:bg-white transition-colors">
                 <Briefcase className="h-4 w-4 text-blue-600" />

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Heart, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 const artworks = [
   {
@@ -126,10 +127,13 @@ const FeaturedArtworks = () => {
           {artworks.slice(0, 8).map((artwork) => (
             <Card key={artwork.id} className="art-card overflow-hidden border-none shadow-md">
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={artwork.image || "/placeholder.svg"}
                   alt={artwork.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  priority={artwork.id === 1}
                 />
                 <button className="absolute top-2 right-2 p-1.5 bg-white/80 rounded-full hover:bg-white transition-colors">
                   <Heart className="h-4 w-4 text-art-pink" />

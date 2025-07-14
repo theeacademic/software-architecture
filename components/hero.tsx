@@ -1,69 +1,63 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useEffect, useRef } from "react"
 
 const Hero = () => {
+  // Animation for welcome message
+  const infoRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (infoRef.current) {
+      infoRef.current.classList.add("animate-hero-pop")
+    }
+  }, [])
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-background to-background/80">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-blue-400/20 to-blue-300/20"></div>
-
-      <div className="container relative z-10 py-20 md:py-32">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-          <div className="flex flex-col gap-6">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Welcome to JCGM HEIGHTS Recruitment <span className="text-blue-500">Agency</span>
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Your trusted partner for global recruitment solutions. We connect exceptional talent with leading employers across the Middle East, ensuring successful placements and long-term partnerships.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-                <Link href="/galleries">Our Services</Link>
-              </Button>
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                <Link href="/artworks">Find Jobs</Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/80 via-blue-400/80 to-blue-300/80 opacity-90"></div>
-            <div className="absolute inset-0 grid grid-cols-2 gap-2 p-4">
-              <div className="space-y-2">
-                <div className="h-32 rounded-md overflow-hidden">
-                  <img
-                    src="/bold 1.jpg?height=300&width=300"
-                    alt="Healthcare Staffing"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="h-40 rounded-md overflow-hidden">
-                  <img
-                    src="/bold 2.jpg?height=300&width=300"
-                    alt="Engineering Recruitment"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="h-40 rounded-md overflow-hidden">
-                  <img
-                    src="/bold 3.jpg?height=300&width=300"
-                    alt="IT Solutions"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="h-32 rounded-md overflow-hidden">
-                  <img
-                    src="/bold 4.jpg?height=300&width=300"
-                    alt="Hospitality Staffing"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+      {/* Alert Banner with Distinct Gradient Shade */}
+      <div
+        className="w-full text-black text-center py-4 font-extrabold text-xl z-20 relative animate-pulse"
+        style={{
+          background: "#ff8800", // Bold orange
+          boxShadow: "0 4px 24px 0 rgba(255, 136, 0, 0.15)",
+          borderBottom: "3px solid #ff9900",
+          letterSpacing: "1px",
+        }}
+      >
+        Hot Opportunities! Fresh job openings just landed — Your dream career could be one click away!
+      </div>
+      {/* Building background image behind welcome message */}
+      <div className="absolute inset-0 flex items-center justify-center z-0">
+        <img
+          src="/building-towers.jpg"
+          alt="Building with towers"
+          className="w-full h-full object-cover opacity-100"
+          style={{ filter: "none" }}
+        />
+        {/* Subtle dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+      <div className="container relative z-10 py-20 md:py-32 flex flex-col items-start justify-center min-h-[60vh]">
+        <div
+          ref={infoRef}
+          className="flex flex-col gap-6 items-start text-left max-w-3xl opacity-0 scale-95"
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+            Leading recruitment agency in Kenya for UAE & Middle East market
+          </h1>
+          <p className="text-lg md:text-xl text-white drop-shadow-md">
+            Are you hiring? Partner with us to find you the most suitable talent for your business from the Kenyan labor force.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 mt-4">
+            <Button size="lg" className="bg-transparent border border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white">
+              <Link href="/galleries">Our services</Link>
+            </Button>
+            <Button size="lg" className="bg-transparent border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
+        {/* Removed photo grid section */}
       </div>
     </div>
   )
